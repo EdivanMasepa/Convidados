@@ -114,27 +114,17 @@ class GuestRepository private  constructor(context: Context){
 
         try{
             val db = guestDataBase.readableDatabase
-            /*
-                        val projection = arrayOf(
-                            DataBaseConstants.GUEST.COLUMNS.ID,
-                            DataBaseConstants.GUEST.COLUMNS.NAME,
-                            DataBaseConstants.GUEST.COLUMNS.PRESENCE,
+            val cursor = db.rawQuery("SELECT id, name, presence, age, gender FROM Guest", null)
 
-                            )
-
-                        val selection = DataBaseConstants.GUEST.COLUMNS.PRESENCE + " = ?"
-                        val args = arrayOf("1")
-
-                        val cursor = db.query(DataBaseConstants.GUEST.TABLE_NAME, projection, selection, args, null, null, null)
-                        */
-            val cursor = db.rawQuery("SELECT id, name, presence FROM Guest", null)
             if(cursor != null && cursor.count > 0){
                 while (cursor.moveToNext()){
                     val id = cursor.getInt(cursor.getColumnIndex(DataBaseConstants.GUEST.COLUMNS.ID))
                     val name = cursor.getString(cursor.getColumnIndex(DataBaseConstants.GUEST.COLUMNS.NAME))
                     val presence = cursor.getInt(cursor.getColumnIndex(DataBaseConstants.GUEST.COLUMNS.PRESENCE))
+                    val age = cursor.getInt(cursor.getColumnIndex(DataBaseConstants.GUEST.COLUMNS.AGE))
+                    val gender = cursor.getString(cursor.getColumnIndex(DataBaseConstants.GUEST.COLUMNS.GENDER))
+                    val guest = GuestModel(id, name, presence == 1, age, gender)
 
-                    val guest = GuestModel(id, name, presence == 1)
                     list.add(guest)
                 }
             }
@@ -152,27 +142,17 @@ class GuestRepository private  constructor(context: Context){
 
         try{
             val db = guestDataBase.readableDatabase
-            /*
-                        val projection = arrayOf(
-                            DataBaseConstants.GUEST.COLUMNS.ID,
-                            DataBaseConstants.GUEST.COLUMNS.NAME,
-                            DataBaseConstants.GUEST.COLUMNS.PRESENCE,
+            val cursor = db.rawQuery("SELECT id, name, presence, age, gender FROM Guest WHERE presence == 1", null)
 
-                            )
-
-                        val selection = DataBaseConstants.GUEST.COLUMNS.PRESENCE + " = ?"
-                        val args = arrayOf("1")
-
-                        val cursor = db.query(DataBaseConstants.GUEST.TABLE_NAME, projection, selection, args, null, null, null)
-                        */
-            val cursor = db.rawQuery("SELECT id, name, presence FROM Guest WHERE presence == 1", null)
             if(cursor != null && cursor.count > 0){
                 while (cursor.moveToNext()){
                     val id = cursor.getInt(cursor.getColumnIndex(DataBaseConstants.GUEST.COLUMNS.ID))
                     val name = cursor.getString(cursor.getColumnIndex(DataBaseConstants.GUEST.COLUMNS.NAME))
                     val presence = cursor.getInt(cursor.getColumnIndex(DataBaseConstants.GUEST.COLUMNS.PRESENCE))
+                    val age = cursor.getInt(cursor.getColumnIndex(DataBaseConstants.GUEST.COLUMNS.AGE))
+                    val gender = cursor.getString(cursor.getColumnIndex(DataBaseConstants.GUEST.COLUMNS.GENDER))
+                    val guest = GuestModel(id, name, presence == 1, age, gender)
 
-                    val guest = GuestModel(id, name, presence == 1)
                     list.add(guest)
                 }
             }
@@ -190,27 +170,18 @@ class GuestRepository private  constructor(context: Context){
 
         try{
             val db = guestDataBase.readableDatabase
-            /*
-                        val projection = arrayOf(
-                            DataBaseConstants.GUEST.COLUMNS.ID,
-                            DataBaseConstants.GUEST.COLUMNS.NAME,
-                            DataBaseConstants.GUEST.COLUMNS.PRESENCE,
+            val cursor = db.rawQuery("SELECT id, name, presence, age, gender FROM Guest WHERE presence == 0", null)
 
-                            )
-
-                        val selection = DataBaseConstants.GUEST.COLUMNS.PRESENCE + " = ?"
-                        val args = arrayOf("1")
-
-                        val cursor = db.query(DataBaseConstants.GUEST.TABLE_NAME, projection, selection, args, null, null, null)
-                        */
-            val cursor = db.rawQuery("SELECT id, name, presence FROM Guest WHERE presence == 0", null)
             if(cursor != null && cursor.count > 0){
                 while (cursor.moveToNext()){
                     val id = cursor.getInt(cursor.getColumnIndex(DataBaseConstants.GUEST.COLUMNS.ID))
                     val name = cursor.getString(cursor.getColumnIndex(DataBaseConstants.GUEST.COLUMNS.NAME))
                     val presence = cursor.getInt(cursor.getColumnIndex(DataBaseConstants.GUEST.COLUMNS.PRESENCE))
+                    val age = cursor.getInt(cursor.getColumnIndex(DataBaseConstants.GUEST.COLUMNS.AGE))
+                    val gender = cursor.getString(cursor.getColumnIndex(DataBaseConstants.GUEST.COLUMNS.GENDER))
 
-                    val guest = GuestModel(id, name, presence == 0)
+                    val guest = GuestModel(id, name, presence == 0, age, gender)
+
                     list.add(guest)
                 }
             }
