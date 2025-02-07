@@ -8,7 +8,7 @@ import com.example.convidados.constants.DataBaseConstants
 class GuestDataBase(context: Context) : SQLiteOpenHelper(context, NAME, null, VERSION) {
 
     companion object{
-        private const val NAME = "guesttdb"
+        private const val NAME = "guestdb"
         private const val VERSION = 1
     }
 
@@ -16,12 +16,12 @@ class GuestDataBase(context: Context) : SQLiteOpenHelper(context, NAME, null, VE
         /*db.execSQL("CREATE TABLE Guest(id integer primary key autoincrement, name text, presence integer);")*/
 
         db.execSQL(
-            "CREATE TABLE" + DataBaseConstants.GUEST.TABLE_NAME + "(" +
-                    DataBaseConstants.GUEST.COLUMNS.ID + "integer primary key autoincrement, " +
-                    DataBaseConstants.GUEST.COLUMNS.NAME + "text, " +
-                    DataBaseConstants.GUEST.COLUMNS.PRESENCE + "integer, " +
-                    DataBaseConstants.GUEST.COLUMNS.AGE + "integer, "+
-                    DataBaseConstants.GUEST.COLUMNS.GENDER + "text);"
+            "CREATE TABLE " + DataBaseConstants.GUEST.TABLE_NAME + "(" +
+                    DataBaseConstants.GUEST.COLUMNS.ID + " integer primary key autoincrement, " +
+                    DataBaseConstants.GUEST.COLUMNS.NAME + " text, " +
+                    DataBaseConstants.GUEST.COLUMNS.MARRIED + " integer, " +
+                    DataBaseConstants.GUEST.COLUMNS.AGE + " integer, "+
+                    DataBaseConstants.GUEST.COLUMNS.GENDER + " text);"
         )
 
     }

@@ -41,11 +41,11 @@ class GuestFormActivity : AppCompatActivity(), View.OnClickListener {
     override fun onClick(view: View) {
         if(view.id == R.id.button_enviar){
             val name = binding.editTextName.text.toString()
-            val presence = binding.radioPresent.isChecked
+            val married = binding.radioPresent.isChecked
             val age = binding.editTextAge.text.toString()
             val ageInt = age.toInt()
             val gender = binding.editTextName.text.toString()
-            val model = GuestModel(guestId, name, presence, ageInt, gender)
+            val model = GuestModel(guestId, name, married, ageInt, gender)
 
             viewModel.save(model)
             finish()
@@ -55,7 +55,7 @@ class GuestFormActivity : AppCompatActivity(), View.OnClickListener {
     private fun observe(){
         viewModel.guest.observe(this, Observer {
             binding.editTextName.setText(it.name)
-            if(it.presence){
+            if(it.married){
                 binding.radioPresent.isChecked = true
             }else{
                 binding.radioAbsent.isChecked = true

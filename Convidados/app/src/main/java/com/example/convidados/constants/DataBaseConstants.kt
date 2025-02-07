@@ -9,7 +9,7 @@ class DataBaseConstants {
         object COLUMNS{
             const val  ID = "id"
             const val  NAME = "name"
-            const val  PRESENCE = "presence"
+            const val  MARRIED = "married"
             const val  AGE = "age"
             const val  GENDER = "gender"
         }

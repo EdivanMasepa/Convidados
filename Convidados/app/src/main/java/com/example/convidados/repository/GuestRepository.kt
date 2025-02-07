@@ -24,10 +24,10 @@ class GuestRepository private  constructor(context: Context){
     fun insert(guest: GuestModel): Boolean{
         return try {
             val db = guestDataBase.writableDatabase
-            val presence = if(guest.presence) 1 else 0
+            val married = if(guest.married) 1 else 0
             val values = ContentValues()
 
-            values.put(DataBaseConstants.GUEST.COLUMNS.PRESENCE, presence)
+            values.put(DataBaseConstants.GUEST.COLUMNS.MARRIED, married)
             values.put(DataBaseConstants.GUEST.COLUMNS.NAME, guest.name)
             values.put(DataBaseConstants.GUEST.COLUMNS.AGE, guest.age)
             values.put(DataBaseConstants.GUEST.COLUMNS.GENDER, guest.gender)
@@ -42,12 +42,12 @@ class GuestRepository private  constructor(context: Context){
     fun update(guest: GuestModel): Boolean{
         return try {
             val db = guestDataBase.writableDatabase
-            val presence = if(guest.presence) 1 else 0
+            val married = if(guest.married) 1 else 0
             val values = ContentValues()
             val selection = DataBaseConstants.GUEST.COLUMNS.ID + " = ?"
             val args = arrayOf(guest.id.toString())
 
-            values.put(DataBaseConstants.GUEST.COLUMNS.PRESENCE, presence)
+            values.put(DataBaseConstants.GUEST.COLUMNS.MARRIED, married)
             values.put(DataBaseConstants.GUEST.COLUMNS.NAME, guest.name)
             values.put(DataBaseConstants.GUEST.COLUMNS.AGE, guest.age)
             values.put(DataBaseConstants.GUEST.COLUMNS.GENDER, guest.gender)
@@ -82,7 +82,7 @@ class GuestRepository private  constructor(context: Context){
             val projection = arrayOf(
                 DataBaseConstants.GUEST.COLUMNS.ID,
                 DataBaseConstants.GUEST.COLUMNS.NAME,
-                DataBaseConstants.GUEST.COLUMNS.PRESENCE,
+                DataBaseConstants.GUEST.COLUMNS.MARRIED,
                 DataBaseConstants.GUEST.COLUMNS.AGE,
                 DataBaseConstants.GUEST.COLUMNS.GENDER
             )
@@ -94,11 +94,11 @@ class GuestRepository private  constructor(context: Context){
             if(cursor != null && cursor.count > 0){
                 while (cursor.moveToNext()) {
                     val name = cursor.getString(cursor.getColumnIndex(DataBaseConstants.GUEST.COLUMNS.NAME))
-                    val presence = cursor.getInt(cursor.getColumnIndex(DataBaseConstants.GUEST.COLUMNS.PRESENCE))
+                    val married = cursor.getInt(cursor.getColumnIndex(DataBaseConstants.GUEST.COLUMNS.MARRIED))
                     val age = cursor.getInt(cursor.getColumnIndex(DataBaseConstants.GUEST.COLUMNS.AGE))
                     val gender = cursor.getString(cursor.getColumnIndex(DataBaseConstants.GUEST.COLUMNS.GENDER))
 
-                    guest = GuestModel(id, name, presence == 1, age, gender)
+                    guest = GuestModel(id, name, married == 1, age, gender)
                 }
             }
             cursor.close()
@@ -114,16 +114,16 @@ class GuestRepository private  constructor(context: Context){
 
         try{
             val db = guestDataBase.readableDatabase
-            val cursor = db.rawQuery("SELECT id, name, presence, age, gender FROM Guest", null)
+            val cursor = db.rawQuery("SELECT id, name, married, age, gender FROM Guest", null)
 
             if(cursor != null && cursor.count > 0){
                 while (cursor.moveToNext()){
                     val id = cursor.getInt(cursor.getColumnIndex(DataBaseConstants.GUEST.COLUMNS.ID))
                     val name = cursor.getString(cursor.getColumnIndex(DataBaseConstants.GUEST.COLUMNS.NAME))
-                    val presence = cursor.getInt(cursor.getColumnIndex(DataBaseConstants.GUEST.COLUMNS.PRESENCE))
+                    val married = cursor.getInt(cursor.getColumnIndex(DataBaseConstants.GUEST.COLUMNS.MARRIED))
                     val age = cursor.getInt(cursor.getColumnIndex(DataBaseConstants.GUEST.COLUMNS.AGE))
                     val gender = cursor.getString(cursor.getColumnIndex(DataBaseConstants.GUEST.COLUMNS.GENDER))
-                    val guest = GuestModel(id, name, presence == 1, age, gender)
+                    val guest = GuestModel(id, name, married == 1, age, gender)
 
                     list.add(guest)
                 }
@@ -142,16 +142,16 @@ class GuestRepository private  constructor(context: Context){
 
         try{
             val db = guestDataBase.readableDatabase
-            val cursor = db.rawQuery("SELECT id, name, presence, age, gender FROM Guest WHERE presence == 1", null)
+            val cursor = db.rawQuery("SELECT id, name, married, age, gender FROM Guest WHERE married == 1", null)
 
             if(cursor != null && cursor.count > 0){
                 while (cursor.moveToNext()){
                     val id = cursor.getInt(cursor.getColumnIndex(DataBaseConstants.GUEST.COLUMNS.ID))
                     val name = cursor.getString(cursor.getColumnIndex(DataBaseConstants.GUEST.COLUMNS.NAME))
-                    val presence = cursor.getInt(cursor.getColumnIndex(DataBaseConstants.GUEST.COLUMNS.PRESENCE))
+                    val married = cursor.getInt(cursor.getColumnIndex(DataBaseConstants.GUEST.COLUMNS.MARRIED))
                     val age = cursor.getInt(cursor.getColumnIndex(DataBaseConstants.GUEST.COLUMNS.AGE))
                     val gender = cursor.getString(cursor.getColumnIndex(DataBaseConstants.GUEST.COLUMNS.GENDER))
-                    val guest = GuestModel(id, name, presence == 1, age, gender)
+                    val guest = GuestModel(id, name, married == 1, age, gender)
 
                     list.add(guest)
                 }
@@ -170,17 +170,17 @@ class GuestRepository private  constructor(context: Context){
 
         try{
             val db = guestDataBase.readableDatabase
-            val cursor = db.rawQuery("SELECT id, name, presence, age, gender FROM Guest WHERE presence == 0", null)
+            val cursor = db.rawQuery("SELECT id, name, married, age, gender FROM Guest WHERE married == 0", null)
 
             if(cursor != null && cursor.count > 0){
                 while (cursor.moveToNext()){
                     val id = cursor.getInt(cursor.getColumnIndex(DataBaseConstants.GUEST.COLUMNS.ID))
                     val name = cursor.getString(cursor.getColumnIndex(DataBaseConstants.GUEST.COLUMNS.NAME))
-                    val presence = cursor.getInt(cursor.getColumnIndex(DataBaseConstants.GUEST.COLUMNS.PRESENCE))
+                    val married = cursor.getInt(cursor.getColumnIndex(DataBaseConstants.GUEST.COLUMNS.MARRIED))
                     val age = cursor.getInt(cursor.getColumnIndex(DataBaseConstants.GUEST.COLUMNS.AGE))
                     val gender = cursor.getString(cursor.getColumnIndex(DataBaseConstants.GUEST.COLUMNS.GENDER))
 
-                    val guest = GuestModel(id, name, presence == 0, age, gender)
+                    val guest = GuestModel(id, name, married == 0, age, gender)
 
                     list.add(guest)
                 }
