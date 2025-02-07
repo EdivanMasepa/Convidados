@@ -9,15 +9,31 @@
     tools:context=".view.GuestFormActivity">
 
     <TextView
-        android:id="@+id/text_name"
+        android:id="@+id/title"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
-        android:text="Nome"
-        android:textSize="24sp"
+        android:layout_marginTop="0dp"
+        android:text="Cadastre-se"
+        android:textSize="34sp"
+        android:textStyle="bold"
+        android:textColor="@color/teal_700"
+        android:textAlignment="center"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"/>
+
+    <TextView
+        android:id="@+id/text_name"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="15dp"
+        android:text="Nome"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        android:textColor="@color/teal_700"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/title"/>
 
     <EditText
         android:id="@+id/edit_text_name"
@@ -37,6 +53,8 @@
         android:layout_marginTop="20dp"
         android:text="Idade"
         android:textSize="24sp"
+        android:textStyle="bold"
+        android:textColor="@color/teal_700"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/edit_text_name"/>
@@ -59,6 +77,8 @@
         android:layout_marginTop="20dp"
         android:text="Gênero"
         android:textSize="24sp"
+        android:textStyle="bold"
+        android:textColor="@color/teal_700"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/edit_text_age"/>
@@ -79,14 +99,17 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="24dp"
-        android:text="@string/presen_a"
+        android:text="Casado(a)"
         android:textSize="24sp"
+        android:textStyle="bold"
+        android:textColor="@color/teal_700"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/edit_text_gender"/>
 
     <RadioGroup
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="25dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/text_present">
 
@@ -94,8 +117,10 @@
             android:id="@+id/radio_present"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:hint="@string/presente"
+            android:hint="Sim"
             android:textSize="24sp"
+            android:textStyle="bold"
+            android:textColor="@color/teal_700"
             app:layout_constraintStart_toStartOf="@id/text_present"
             app:layout_constraintTop_toBottomOf="@id/text_present"/>
 
@@ -103,8 +128,10 @@
             android:id="@+id/radio_absent"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:hint="@string/ausente"
+            android:hint="Não"
             android:textSize="24sp"
+            android:textStyle="bold"
+            android:textColor="@color/teal_700"
             app:layout_constraintStart_toStartOf="@id/text_present"
             app:layout_constraintTop_toBottomOf="@id/text_present"/>
 
@@ -114,8 +141,8 @@
         android:id="@+id/button_enviar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="300dp"
-        android:text="Enviar"
+        android:layout_marginTop="530dp"
+        android:text="Cadastrar"
         android:textSize="18sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
