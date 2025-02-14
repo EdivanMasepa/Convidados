@@ -14,7 +14,7 @@
     <fragment
         android:id="@+id/nav_present"
         android:name="com.example.convidados.view.PresentFragment"
-        android:label="Casados"
+        android:label="Comprometidos"
         tools:layout="@layout/fragment_present" />
 
     <fragment

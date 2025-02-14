@@ -18,11 +18,11 @@ class GuestsViewModel(application: Application) : AndroidViewModel(application) 
     }
 
     fun getPresent(){
-        listSAllGuests.value = repository.getPresence()
+        listSAllGuests.value = repository.getMarried()
     }
 
     fun getAbsent(){
-        listSAllGuests.value = repository.getAbsent()
+        listSAllGuests.value = repository.getSingle()
     }
 
     fun delete(id: Int){

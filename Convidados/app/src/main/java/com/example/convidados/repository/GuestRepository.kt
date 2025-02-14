@@ -136,7 +136,7 @@ class GuestRepository private  constructor(context: Context){
     }
 
     @SuppressLint("Recycle", "Range")
-    fun getPresence(): List<GuestModel>{
+    fun getMarried(): List<GuestModel>{
 
         val list = mutableListOf<GuestModel>()
 
@@ -164,7 +164,7 @@ class GuestRepository private  constructor(context: Context){
     }
 
     @SuppressLint("Recycle", "Range")
-    fun getAbsent(): List<GuestModel>{
+    fun getSingle(): List<GuestModel>{
 
         val list = mutableListOf<GuestModel>()
 

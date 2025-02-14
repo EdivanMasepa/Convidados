@@ -27,6 +27,7 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="15dp"
+        android:layout_marginLeft="10dp"
         android:text="Nome"
         android:textSize="24sp"
         android:textStyle="bold"
@@ -51,6 +52,7 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="20dp"
+        android:layout_marginStart="10dp"
         android:text="Idade"
         android:textSize="24sp"
         android:textStyle="bold"
@@ -75,6 +77,7 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="20dp"
+        android:layout_marginStart="10dp"
         android:text="Gênero"
         android:textSize="24sp"
         android:textStyle="bold"
@@ -99,6 +102,7 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="24dp"
+        android:layout_marginStart="10dp"
         android:text="Casado(a)"
         android:textSize="24sp"
         android:textStyle="bold"
@@ -109,6 +113,8 @@
     <RadioGroup
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginStart="10dp"
+
         android:layout_marginTop="25dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/text_present">
@@ -139,11 +145,12 @@
 
     <Button
         android:id="@+id/button_enviar"
-        android:layout_width="match_parent"
+        android:layout_width="200dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="530dp"
+        android:layout_marginTop="500dp"
         android:text="Cadastrar"
         android:textSize="18sp"
+        android:backgroundTint="@color/teal_700"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"

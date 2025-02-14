@@ -11,7 +11,7 @@
         <item
             android:id="@+id/nav_present"
             android:icon="@drawable/ic_menu_gallery"
-            android:title="Casados(as)" />
+            android:title="Comprometidos(as)" />
         <item
             android:id="@+id/nav_absent"
             android:icon="@drawable/ic_menu_slideshow"

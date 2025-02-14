@@ -12,7 +12,7 @@ import com.example.convidados.view.listener.OnGuestListener
 
 class GuestViewHolder(private val bind: RowGuestBinding, private val listener:OnGuestListener) : RecyclerView.ViewHolder(bind.root) {
     fun bind(guest: GuestModel){
-        bind.textName.text = guest.name
+        bind.textName.text = guest.name + " - " + guest.age + " Anos"
         bind.textName.setOnClickListener{listener.onClick(guest.id)}
         bind.textName.setOnLongClickListener {
             AlertDialog.Builder(itemView.context)
